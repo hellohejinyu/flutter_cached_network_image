@@ -206,7 +206,6 @@ class CachedNetworkImage extends StatelessWidget {
   /// loaded image. Next to that it supports most features of a default Image
   /// widget.
   CachedNetworkImage({
-    super.key,
     required this.imageUrl,
     this.httpHeaders,
     this.imageBuilder,
@@ -236,7 +235,8 @@ class CachedNetworkImage extends StatelessWidget {
     this.maxHeightDiskCache,
     ImageRenderMethodForWeb imageRenderMethodForWeb =
         ImageRenderMethodForWeb.HtmlImage,
-  }) : _image = CachedNetworkImageProvider(
+    Key? key,
+  })  : _image = CachedNetworkImageProvider(
           imageUrl,
           headers: httpHeaders,
           cacheManager: cacheManager,
@@ -244,7 +244,8 @@ class CachedNetworkImage extends StatelessWidget {
           imageRenderMethodForWeb: imageRenderMethodForWeb,
           maxWidth: maxWidthDiskCache,
           maxHeight: maxHeightDiskCache,
-        );
+        ),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

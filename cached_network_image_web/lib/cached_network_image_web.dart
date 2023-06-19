@@ -4,7 +4,6 @@ library cached_network_image_web;
 import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
-import 'dart:ui';
 
 import 'package:cached_network_image_platform_interface'
         '/cached_network_image_platform_interface.dart' as platform
@@ -66,7 +65,7 @@ class ImageLoader implements platform.ImageLoader {
       cacheKey,
       chunkEvents,
       (bytes) async {
-        final buffer = await ImmutableBuffer.fromUint8List(bytes);
+        final buffer = await ui.ImmutableBuffer.fromUint8List(bytes);
         return decode(buffer);
       },
       cacheManager,
