@@ -19,6 +19,7 @@ typedef ErrorListener = void Function();
 
 /// IO implementation of the CachedNetworkImageProvider; the ImageProvider to
 /// load network images using a cache.
+@immutable
 class CachedNetworkImageProvider
     extends ImageProvider<image_provider.CachedNetworkImageProvider> {
   /// Creates an ImageProvider which loads an image from the [url], using the [scale].

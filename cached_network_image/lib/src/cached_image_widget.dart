@@ -235,8 +235,8 @@ class CachedNetworkImage extends StatelessWidget {
     this.maxHeightDiskCache,
     ImageRenderMethodForWeb imageRenderMethodForWeb =
         ImageRenderMethodForWeb.HtmlImage,
-    Key? key,
-  })  : _image = CachedNetworkImageProvider(
+    super.key,
+  }) : _image = CachedNetworkImageProvider(
           imageUrl,
           headers: httpHeaders,
           cacheManager: cacheManager,
@@ -244,8 +244,7 @@ class CachedNetworkImage extends StatelessWidget {
           imageRenderMethodForWeb: imageRenderMethodForWeb,
           maxWidth: maxWidthDiskCache,
           maxHeight: maxHeightDiskCache,
-        ),
-        super(key: key);
+        );
 
   @override
   Widget build(BuildContext context) {
