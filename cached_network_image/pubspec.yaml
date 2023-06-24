@@ -16,9 +16,15 @@ dependencies:
       path: flutter_cache_manager
   octo_image: ^1.0.2
   cached_network_image_platform_interface:
-    path: ../cached_network_image_platform_interface
+    git:
+      url: https://github.com/Carapacik/flutter_cached_network_image.git
+      path: cached_network_image_platform_interface
+      ref: actual
   cached_network_image_web:
-    path: ../cached_network_image_web
+    git:
+      url: https://github.com/Carapacik/flutter_cached_network_image.git
+      path: cached_network_image_web
+      ref: actual
 
 dev_dependencies:
   file: '>=6.1.4 <8.0.0'
