@@ -10,10 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_cache_manager: ^3.3.1
+  flutter_cache_manager:
+    git:
+      url: https://github.com/Carapacik/flutter_cache_manager.git
+      path: flutter_cache_manager
   octo_image: ^1.0.2
-  cached_network_image_platform_interface: ^2.0.1
-  cached_network_image_web: ^1.0.3
+  cached_network_image_platform_interface:
+    path: ../cached_network_image_platform_interface
+  cached_network_image_web:
+    path: ../cached_network_image_web
 
 dev_dependencies:
   file: '>=6.1.4 <8.0.0'
