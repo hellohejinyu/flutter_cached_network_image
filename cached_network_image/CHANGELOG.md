@@ -1,5 +1,6 @@
-## [3.2.4] - 2023-06-20
-* Support for Dart 3
+## [3.2.4] - TBD
+* Support Dart 3.0.0 for http ^1.0.0 and file ^7.0.0
+* Add topics
 
 ## [3.2.3] - 2022-11-25
 * Correctly dispose image stream handler
