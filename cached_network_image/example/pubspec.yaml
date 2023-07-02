@@ -1,5 +1,7 @@
 name: example
 description: A project that showcases usage of cached_network_image
+publish_to: none
+version: 1.0.0+1
 environment:
   sdk: ^3.0.0
   flutter: '>=3.10.0'
@@ -21,5 +23,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - packages/baseflow_plugin_template/logo.png
-    - packages/baseflow_plugin_template/poweredByBaseflow.png
+    - res/images/baseflow_logo_def_light-02.png
+    - res/images/poweredByBaseflowLogoLight@3x.png
