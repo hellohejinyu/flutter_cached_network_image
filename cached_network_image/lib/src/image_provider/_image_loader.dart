@@ -26,9 +26,9 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    void Function()? errorListener,
+    VoidCallback? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
-    void Function() evictImage,
+    VoidCallback evictImage,
   ) {
     return _load(
       url,
@@ -55,9 +55,9 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    void Function()? errorListener,
+    VoidCallback? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
-    void Function() evictImage,
+    VoidCallback evictImage,
   ) {
     return _load(
       url,
@@ -86,9 +86,9 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    void Function()? errorListener,
+    VoidCallback? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
-    void Function() evictImage,
+    VoidCallback evictImage,
   ) async* {
     try {
       assert(

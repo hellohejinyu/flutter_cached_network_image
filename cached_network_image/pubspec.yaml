@@ -12,12 +12,12 @@ environment:
   flutter: '>=3.3.0'
 
 dependencies:
+  cached_network_image_platform_interface: ^2.0.1
+  cached_network_image_web: ^1.0.3
   flutter:
     sdk: flutter
   flutter_cache_manager: ^3.3.1
   octo_image: ^1.0.2
-  cached_network_image_platform_interface: ^2.0.1
-  cached_network_image_web: ^1.0.3
 
 dev_dependencies:
   file: '>=6.1.4 <8.0.0'
