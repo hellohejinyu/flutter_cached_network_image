@@ -26,7 +26,7 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    VoidCallback? errorListener,
+    ValueChanged<Object>? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
     VoidCallback evictImage,
   ) {
@@ -55,7 +55,7 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    VoidCallback? errorListener,
+    ValueChanged<Object>? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
     VoidCallback evictImage,
   ) {
@@ -81,12 +81,12 @@ class ImageLoader implements platform.ImageLoader {
     String url,
     String? cacheKey,
     StreamController<ImageChunkEvent> chunkEvents,
-    Future<ui.Codec> Function(Uint8List) decode,
+    _FileDecoderCallback decode,
     BaseCacheManager cacheManager,
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    VoidCallback? errorListener,
+    ValueChanged<Object>? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
     VoidCallback evictImage,
   ) async* {
@@ -130,7 +130,7 @@ class ImageLoader implements platform.ImageLoader {
           yield decoded;
         }
       }
-    } on Object catch (_) {
+    } on Object catch (e) {
       // Depending on where the exception was thrown, the image cache may not
       // have had a chance to track the key in the cache at all.
       // Schedule a microtask to give the cache a chance to add the key.
@@ -138,10 +138,12 @@ class ImageLoader implements platform.ImageLoader {
         evictImage();
       });
 
-      errorListener?.call();
+      errorListener?.call(e);
       rethrow;
     } finally {
       await chunkEvents.close();
     }
   }
 }
+
+typedef _FileDecoderCallback = Future<ui.Codec> Function(Uint8List);

@@ -1,8 +1,6 @@
 import 'dart:async' show Future, StreamController;
 import 'dart:ui' as ui show Codec;
 
-import 'package:cached_network_image/src/image_provider/cached_network_image_provider.dart'
-    as image_provider;
 import 'package:cached_network_image/src/image_provider/multi_image_stream_completer.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart'
     show ImageRenderMethodForWeb;
@@ -18,7 +16,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 /// load network images using a cache.
 @immutable
 class CachedNetworkImageProvider
-    extends ImageProvider<image_provider.CachedNetworkImageProvider> {
+    extends ImageProvider<CachedNetworkImageProvider> {
   /// Creates an ImageProvider which loads an image from the [url], using the [scale].
   /// When the image fails to load [errorListener] is called.
   const CachedNetworkImageProvider(
@@ -46,7 +44,7 @@ class CachedNetworkImageProvider
   final double scale;
 
   /// Listener to be called when images fails to load.
-  final VoidCallback? errorListener;
+  final ValueChanged<Object>? errorListener;
 
   /// Set headers for the image provider, for example for authentication
   final Map<String, String>? headers;
@@ -75,7 +73,7 @@ class CachedNetworkImageProvider
   )
   @override
   ImageStreamCompleter load(
-    image_provider.CachedNetworkImageProvider key,
+    CachedNetworkImageProvider key,
     DecoderCallback decode,
   ) {
     final chunkEvents = StreamController<ImageChunkEvent>();
@@ -98,7 +96,7 @@ class CachedNetworkImageProvider
     'see https://docs.flutter.dev/release/breaking-changes/image-provider-load-buffer',
   )
   Stream<ui.Codec> _loadAsync(
-    image_provider.CachedNetworkImageProvider key,
+    CachedNetworkImageProvider key,
     StreamController<ImageChunkEvent> chunkEvents,
     DecoderCallback decode,
   ) {
@@ -120,7 +118,7 @@ class CachedNetworkImageProvider
 
   @override
   ImageStreamCompleter loadBuffer(
-    image_provider.CachedNetworkImageProvider key,
+    CachedNetworkImageProvider key,
     DecoderBufferCallback decode,
   ) {
     final chunkEvents = StreamController<ImageChunkEvent>();
@@ -139,7 +137,7 @@ class CachedNetworkImageProvider
   }
 
   Stream<ui.Codec> _loadBufferAsync(
-    image_provider.CachedNetworkImageProvider key,
+    CachedNetworkImageProvider key,
     StreamController<ImageChunkEvent> chunkEvents,
     DecoderBufferCallback decode,
   ) {
