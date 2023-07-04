@@ -7,17 +7,14 @@ environment:
   flutter: '>=3.3.0'
 
 dependencies:
-  flutter:
-    sdk: flutter
-  flutter_cache_manager:
-    git:
-      url: https://github.com/Carapacik/flutter_cache_manager.git
-      path: flutter_cache_manager
   cached_network_image_platform_interface:
     git:
       url: https://github.com/Carapacik/flutter_cached_network_image.git
       path: cached_network_image_platform_interface
       ref: actual
+  flutter:
+    sdk: flutter
+  flutter_cache_manager: ^3.3.1
 
 dev_dependencies:
   file: '>=6.1.4 <8.0.0'

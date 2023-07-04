@@ -14,9 +14,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
-/// Function which is called after loading the image failed.
-typedef ErrorListener = void Function();
-
 /// IO implementation of the CachedNetworkImageProvider; the ImageProvider to
 /// load network images using a cache.
 @immutable
@@ -49,7 +46,7 @@ class CachedNetworkImageProvider
   final double scale;
 
   /// Listener to be called when images fails to load.
-  final image_provider.ErrorListener? errorListener;
+  final VoidCallback? errorListener;
 
   /// Set headers for the image provider, for example for authentication
   final Map<String, String>? headers;
@@ -177,5 +174,5 @@ class CachedNetworkImageProvider
   int get hashCode => Object.hash(cacheKey ?? url, scale, maxHeight, maxWidth);
 
   @override
-  String toString() => '$runtimeType("$url", scale: $scale)';
+  String toString() => 'CachedNetworkImageProvider("$url", scale: $scale)';
 }

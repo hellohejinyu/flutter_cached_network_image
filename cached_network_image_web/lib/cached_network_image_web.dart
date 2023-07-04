@@ -27,9 +27,9 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    void Function()? errorListener,
+    VoidCallback? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
-    void Function() evictImage,
+    VoidCallback evictImage,
   ) {
     return _load(
       url,
@@ -56,9 +56,9 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    void Function()? errorListener,
+    VoidCallback? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
-    void Function() evictImage,
+    VoidCallback evictImage,
   ) {
     return _load(
       url,
@@ -87,9 +87,9 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    void Function()? errorListener,
+    VoidCallback? errorListener,
     ImageRenderMethodForWeb imageRenderMethodForWeb,
-    void Function() evictImage,
+    VoidCallback evictImage,
   ) {
     switch (imageRenderMethodForWeb) {
       case ImageRenderMethodForWeb.HttpGet:
@@ -119,11 +119,11 @@ class ImageLoader implements platform.ImageLoader {
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
-    void Function()? errorListener,
-    void Function() evictImage,
+    VoidCallback? errorListener,
+    VoidCallback evictImage,
   ) async* {
     try {
-      await for (var result in cacheManager.getFileStream(
+      await for (final result in cacheManager.getFileStream(
         url,
         key: cacheKey,
         withProgress: true,
